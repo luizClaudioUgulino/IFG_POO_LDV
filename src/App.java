@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         
+    
+
         Scanner sc = new Scanner(System.in);
-
         ArrayList<Locadora> lcd = new ArrayList<Locadora>();
-
          boolean loop = false;
 
         while(loop == false){
@@ -23,6 +23,7 @@ public class App {
                 println("Poderia digitar nome Locadora ?");
                 String nomeLocadora = sc.next();
                 int idDaLocadora = 0;
+                try{
                 for(int x = 0; x < lcd.size();x++){
 
                     if(lcd.get(x).getNome().equals(nomeLocadora)){
@@ -30,11 +31,14 @@ public class App {
                      ///   println("encontrou!!");
                     }
                 }
+            }catch(ArrayIndexOutOfBoundsException e){
+                
 
+            }
                 println("/////////////////////////////////////////////////////////");
                 System.out.println("Seja bem vindo " + lcd.get(idDaLocadora).getNome() +" Ao seu sistema de gestão Locadora");
                 println("quais atividades vai Desejar :");
-                println("Adicionar Carro Disponível - (1)" + );
+                println("Realizar um empresitmo - (1) / ");
                 
 
                 break;
