@@ -23,7 +23,7 @@ public class App {
                 println("Poderia digitar nome Locadora ?");
                 String nomeLocadora = sc.next();
                 int idDaLocadora = 0;
-                try{
+                
                 for(int x = 0; x < lcd.size();x++){
 
                     if(lcd.get(x).getNome().equals(nomeLocadora)){
@@ -31,16 +31,41 @@ public class App {
                      ///   println("encontrou!!");
                     }
                 }
-            }catch(ArrayIndexOutOfBoundsException e){
-                
-
-            }
+            
                 println("/////////////////////////////////////////////////////////");
                 System.out.println("Seja bem vindo " + lcd.get(idDaLocadora).getNome() +" Ao seu sistema de gestão Locadora");
-                println("quais atividades vai Desejar :");
-                println("Realizar um empresitmo - (1) / ");
                 
+                while(loop == false){
+                println("quais atividades vai Desejar :");
+                println(" Emprestimo - (1) / Cadastro de veículo - (2) / Cadastrar Cliente - (3) / Devolução - (4) ");
+                println("Para sair escolha -(5)");
+                escolha = sc.nextInt();
 
+                switch (escolha){
+                    case 1 :
+                    println("emprestimo");
+                    break;
+
+                    case 2:
+                    println("cadastrodo de veiculo");
+                    break;
+
+                    case 3:
+                    println("cadastrar cliente");
+                    break;
+
+                    case 4:
+                    println("devolução");
+                    break;
+
+                    case 5: 
+                    loop = true;
+                    break;
+                }
+
+                
+            }
+                loop = false;
                 break;
 
                 case 2 :

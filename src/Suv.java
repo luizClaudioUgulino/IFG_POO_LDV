@@ -1,8 +1,7 @@
 public class Suv extends Carro {
     
-
-    public Suv(String marca, String modelo, String placa, String ano, String valorDeLocacao,String tipoAtracao,String tipoDeCombustivel,int portasMalas) {
-        super(marca, modelo, placa, ano, valorDeLocacao);
+    public Suv(String marca, String modelo, String placa, String ano, int valorDeLocacao,String tipoAtracao,String tipoDeCombustivel,int portasMalas,boolean CarroDisponível) {
+        super(marca, modelo, placa, ano, valorDeLocacao,3,CarroDisponível);
         //TODO Auto-generated constructor stub
         this.tipoAtracao = tipoAtracao;
         this.portasMalas = portasMalas;

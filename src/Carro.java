@@ -1,16 +1,28 @@
-public class Carro {
+public abstract class Carro {
     private String marca;
     private String modelo;
     private String placa;
     private String ano;
-    private String valorDeLocacao;
+
+
+    private int valorDeLocacao;
+    private int cotaRenovacao;
+    private boolean CarroDisponível;
     
-    public Carro(String marca, String modelo, String placa, String ano, String valorDeLocacao) {
+    public Carro(String marca, String modelo, String placa, String ano, int valorDeLocacao, int cotaRenovacao,boolean CarroDisponível) {
         this.marca = marca;
         this.modelo = modelo;
         this.placa = placa;
         this.ano = ano;
         this.valorDeLocacao = valorDeLocacao;
+        this.cotaRenovacao = cotaRenovacao;
+        this.CarroDisponível = CarroDisponível;
+    }
+    public boolean isCarroDisponível() {
+        return CarroDisponível;
+    }
+    public void setCarroDisponível(boolean carroDisponível) {
+        CarroDisponível = carroDisponível;
     }
     public String getMarca() {
         return marca;
@@ -36,11 +48,20 @@ public class Carro {
     public void setAno(String ano) {
         this.ano = ano;
     }
-    public String getValorDeLocacao() {
+    public int getValorDeLocacao() {
         return valorDeLocacao;
     }
-    public void setValorDeLocacao(String valorDeLocacao) {
+    public void setValorDeLocacao(int valorDeLocacao) {
         this.valorDeLocacao = valorDeLocacao;
     }
+    public int getCotaRenovacao() {
+        return cotaRenovacao;
+    }
+    
+    public int valorTotalLocacao(){
+        int valortotal = this.valorDeLocacao * this.cotaRenovacao;  
+     return valortotal;
+    }
+
 
 }

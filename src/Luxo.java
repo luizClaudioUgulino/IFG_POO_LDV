@@ -1,7 +1,7 @@
 public class Luxo extends Carro{
     
-    public Luxo(String marca, String modelo, String placa, String ano, String valorDeLocacao,int quantidadeDeAirbags,int tamanhoPortaMalas,boolean gps) {
-        super(marca, modelo, placa, ano, valorDeLocacao);
+    public Luxo(String marca, String modelo, String placa, String ano, int valorDeLocacao,int quantidadeDeAirbags,int tamanhoPortaMalas,boolean gps,boolean CarroDisponível) {
+        super(marca, modelo, placa, ano, valorDeLocacao, 5,CarroDisponível);
         //TODO Auto-generated constructor stub
         this.gps =gps;
         this.tamanhoPortaMalas =tamanhoPortaMalas;

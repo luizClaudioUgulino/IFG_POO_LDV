@@ -31,25 +31,7 @@ public class Locadora {
         this.telefone = telefone;
     }
 
-    ArrayList<PessoaFisica> lclientesP = new ArrayList<PessoaFisica>();
-    ArrayList<PessoaJuridica> lclientesJ = new ArrayList<PessoaJuridica>();
-    ArrayList<Popular> lCarrosP = new ArrayList<Popular>();
-    ArrayList<Luxo> lCarrosLuxo = new ArrayList<Luxo>();
-    ArrayList<Suv> lCarrosSuv = new ArrayList<Suv>();
     
-    public void adicionarClienteFisico(PessoaFisica valor){
-        lclientesP.add(valor);
-    }
-
-    public void adicionarCarroP(Popular valor){
-        lCarrosP.add(valor);
-    }
-    public void adicionarCarroLuxo(Luxo valor){
-        lCarrosLuxo.add(valor);
-    }
-    public void adicionarCarroSuv(Suv valor){
-        lCarrosSuv.add(valor);
-    }
 
 
 
