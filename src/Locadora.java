@@ -31,9 +31,8 @@ public class Locadora {
         this.telefone = telefone;
     }
 
+
     
-
-
 
 
 }

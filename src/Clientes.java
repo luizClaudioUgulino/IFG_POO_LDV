@@ -2,13 +2,14 @@ public abstract class Clientes {
     private String nome;
     private String endereço;
     private String telefone;
-    private int limiteEmprestimo;
-    
-    public Clientes(String nome, String endereço, String telefone, int limiteEmprestimo) {
+    private int valorContaDinheiro;
+
+    public Clientes(String nome, String endereço, String telefone, int valorContaDinheiro) {
         this.nome = nome;
         this.endereço = endereço;
         this.telefone = telefone;
-        this.limiteEmprestimo = limiteEmprestimo;
+        this.valorContaDinheiro = valorContaDinheiro;
+    
     }
     public String getNome() {
         return nome;

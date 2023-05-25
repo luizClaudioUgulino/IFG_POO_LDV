@@ -12,15 +12,16 @@ public class App {
 
         while(loop == false){
             println("/////////////////////////////////////////////////////////");
-            println("Olá seja bem vindo ao sistema de gestão de locadora");
-            println("Já Possui Locadora ? -(1), ou gostaria de cadastrar uma ? - (2)");
-            println("Se caso quizer sair n° -(3)");
+            println("OLÁ BEM VINDO AO SISTEMA DE LOCADORA");
+            println("ENTRAR NO SEU SISTEMA -(1) / CADASTRAR UMA LOCADORA - (2) / FECHAR-(3)");
             println("/////////////////////////////////////////////////////////");
             int escolha = sc.nextInt();
            
+            //// função de escolha das opções acima
             switch (escolha){
                 case 1 :
-                println("Poderia digitar nome Locadora ?");
+                println("/////////////////////////////////////////////////////////");
+                println("PODERIA INFORMAR NOME DA SUA LOCADORA ?");
                 String nomeLocadora = sc.next();
                 int idDaLocadora = 0;
                 
@@ -28,17 +29,15 @@ public class App {
 
                     if(lcd.get(x).getNome().equals(nomeLocadora)){
                         idDaLocadora = x;
-                     ///   println("encontrou!!");
                     }
                 }
             
                 println("/////////////////////////////////////////////////////////");
-                System.out.println("Seja bem vindo " + lcd.get(idDaLocadora).getNome() +" Ao seu sistema de gestão Locadora");
+                System.out.println("SEJA BEM VINDO " + lcd.get(idDaLocadora).getNome() +" AO SISTEMA DE LOCADORA");
                 
                 while(loop == false){
-                println("quais atividades vai Desejar :");
-                println(" Emprestimo - (1) / Cadastro de veículo - (2) / Cadastrar Cliente - (3) / Devolução - (4) ");
-                println("Para sair escolha -(5)");
+                println("QUAIS ATIVIDADES VAI SOLICITAR :");
+                println(" EMPRESTIMO - (1) / CADASTRAR O VEICULO - (2) / CADASTRAR O CLIENTE - (3) / DEVOLUÇÃO - (4) / FECHAR - (5) ");
                 escolha = sc.nextInt();
 
                 switch (escolha){

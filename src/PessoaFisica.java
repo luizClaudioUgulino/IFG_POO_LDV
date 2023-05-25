@@ -1,7 +1,7 @@
 public class PessoaFisica extends Clientes{
 
-    public PessoaFisica(String nome, String endereço, String telefone,String cpf) {
-        super(nome, endereço, telefone,1);
+    public PessoaFisica(String nome, String endereço, String telefone,String cpf,int valorContaDinheiro ) {
+        super(nome, endereço, telefone,valorContaDinheiro);
         //TODO Auto-generated constructor stub
         this.cpf = cpf;
     }
