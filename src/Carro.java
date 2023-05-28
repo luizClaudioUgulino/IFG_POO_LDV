@@ -1,4 +1,4 @@
-public abstract class Carro {
+public class Carro {
     private String marca;
     private String modelo;
     private String placa;
@@ -8,8 +8,16 @@ public abstract class Carro {
     private int valorDeLocacao;
     private int cotaRenovacao;
     private boolean CarroDisponível;
-    private int numeroVezesEmprestimo;
     private int ValorMulta;
+
+    @Override
+    public String toString() {
+        return "Carro [marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", ano=" + ano + ", idDoCarro="
+                + idDoCarro + ", valorDeLocacao=" + valorDeLocacao + ", cotaRenovacao=" + cotaRenovacao
+                + ", CarroDisponível=" + CarroDisponível + ", ValorMulta=" + ValorMulta + "]";
+    }
+
+    private int numeroVezesEmprestimo;
 
     public Carro(String idDoCarro, String marca, String modelo, String placa, String ano, int valorDeLocacao,
             int cotaRenovacao,

@@ -52,11 +52,126 @@ public class App {
 
                         switch (escolha) {
                             case 1:
-                                println("emprestimo");
+                                println("////////////// EMPRESTIMO ///////////////");
+                                println(" CRIAR EMPRESTIMO - (1) / LISTA EMPRESTIMO - (2) / RENOVAR EMPRESTIMO - (3) ");
+                                System.out.print("VALOR DA ESCOLHA:");
+                                int escolhaEmprestimo = sc.nextInt();
+
+                                if (escolhaEmprestimo == 1) {
+                                    println("/////////////////////////////////////////////////////////");
+                                    System.out.println("NOME DO CLIENTE CADASTRADO:");
+                                    String nomeCliente = sc.next();
+
+                                    System.out.println("ID DO VEICULO CADASTRADO:");
+                                    String nomeVeiculo = sc.next();
+
+                                    int idDoCliente = 0;
+                                    for (int x = 0; x < lcd.get(idDaLocadora).clp.size(); x++) {
+                                        if (lcd.get(idDaLocadora).clp.get(x).getNome().equals(nomeCliente)) {
+                                            idDoCliente = x;
+                                        }
+                                    }
+                                    for (int x = 0; x < lcd.get(idDaLocadora).clj.size(); x++) {
+                                        if (lcd.get(idDaLocadora).clj.get(x).getNome().equals(nomeCliente)) {
+                                            idDoCliente = x;
+                                        }
+
+                                        int idDoCarro = 0;
+
+                                        for (int y = 0; x < lcd.get(idDaLocadora).crr.size(); x++) {
+
+                                            if (lcd.get(idDaLocadora).crr.get(y).getIdDoCarro().equals(nomeVeiculo)) {
+                                                idDoCarro = x;
+                                            }
+                                        }
+
+                                        System.out.println("ID DO EMPRESTIMO:");
+                                        int idDoEmprestimoString = sc.nextInt();
+
+                                        Carro carroid = lcd.get(idDaLocadora).crr.get(idDoCliente);
+                                        Clientes cienteget = lcd.get(idDaLocadora).cl.get(idDoCarro);
+
+                                        Emprestimo emp = new Emprestimo(idDoEmprestimoString, cienteget, carroid, true);
+
+                                    }
+
+                                } else if (escolhaEmprestimo == 2) {
+
+                                } else {
+                                }
+
                                 break;
                             ///////////////////////////////////////////////////////
                             case 2:
-                                println("cadastrodo de veiculo");
+
+                                println("////////////// CADASTRAR CARRO ///////////////");
+                                println("LUXO - (1) / SUV - (2) / POPULAR - (3) ");
+                                System.out.print("VALOR DA ESCOLHA:");
+                                int escolhaCarro = sc.nextInt();
+
+                                if (escolhaCarro == 1) {
+
+                                    String[] escolhaLuxo = { "ID DO CARRO", "MARCA", "MODELO", "PLACA", "ANO" };
+                                    println("////////////// CADASTRAR CARRO LUXO ///////////////");
+                                    for (int x = 0; x < escolhaLuxo.length; x++) {
+                                        System.out.print("DIGITE " + escolhaLuxo[x] + ":");
+                                        escolhaLuxo[x] = sc.nextLine();
+                                        if (x == 0) {
+                                            escolhaLuxo[x] = sc.nextLine();
+                                        }
+                                        System.out.println("");
+                                    }
+                                    System.out.print("VALOR DO CARRO :");
+                                    int valorcarro = sc.nextInt();
+
+                                    Carro carro = new Carro(escolhaLuxo[0], escolhaLuxo[1], escolhaLuxo[2],
+                                            escolhaLuxo[3], escolhaLuxo[4], valorcarro, 3, true, 10);
+
+                                    lcd.get(idDaLocadora).crr.add(carro);
+
+                                } else if (escolhaCarro == 2) {
+
+                                    String[] escolhaLuxo = { "ID DO CARRO", "MARCA", "MODELO", "PLACA", "ANO" };
+                                    println("////////////// CADASTRAR CARRO SUV ///////////////");
+                                    for (int x = 0; x < escolhaLuxo.length; x++) {
+                                        System.out.print("DIGITE " + escolhaLuxo[x] + ":");
+                                        escolhaLuxo[x] = sc.nextLine();
+                                        if (x == 0) {
+                                            escolhaLuxo[x] = sc.nextLine();
+                                        }
+                                        System.out.println("");
+                                    }
+                                    System.out.print("VALOR DO CARRO :");
+                                    int valorcarro = sc.nextInt();
+
+                                    Carro carro = new Carro(escolhaLuxo[0], escolhaLuxo[1], escolhaLuxo[2],
+                                            escolhaLuxo[3], escolhaLuxo[4], valorcarro, 3, true, 10);
+
+                                    lcd.get(idDaLocadora).crr.add(carro);
+
+                                } else if (escolhaCarro == 3) {
+
+                                    String[] escolhaLuxo = { "ID DO CARRO", "MARCA", "MODELO", "PLACA", "ANO" };
+                                    println("////////////// CADASTRAR CARRO POPULAR ///////////////");
+                                    for (int x = 0; x < escolhaLuxo.length; x++) {
+                                        System.out.print("DIGITE " + escolhaLuxo[x] + ":");
+                                        escolhaLuxo[x] = sc.nextLine();
+                                        if (x == 0) {
+                                            escolhaLuxo[x] = sc.nextLine();
+                                        }
+                                        System.out.println("");
+                                    }
+                                    System.out.print("VALOR DO CARRO :");
+                                    int valorcarro = sc.nextInt();
+
+                                    Carro carro = new Carro(escolhaLuxo[0], escolhaLuxo[1], escolhaLuxo[2],
+                                            escolhaLuxo[3], escolhaLuxo[4], valorcarro, 3, true, 10);
+
+                                    lcd.get(idDaLocadora).crr.add(carro);
+                                } else {
+
+                                }
+
                                 break;
                             ///////////////////////////////////////////////////////
                             case 3:
@@ -72,7 +187,10 @@ public class App {
                                     for (int x = 0; x < escolhaFisico.length; x++) {
                                         System.out.print("Digide " + escolhaFisico[x] + ":");
                                         escolhaFisico[x] = sc.nextLine();
-                                        escolhaFisico[x] = sc.nextLine();
+                                        if (x == 0) {
+                                            escolhaFisico[x] = sc.nextLine();
+                                        }
+                                        println("VALOR DA CONTA :");
                                         System.out.println("");
                                     }
                                     int valordacontaget = sc.nextInt();
@@ -89,9 +207,12 @@ public class App {
                                     for (int x = 0; x < escolhaJuridico.length; x++) {
                                         System.out.print("Digide " + escolhaJuridico[x] + ":");
                                         escolhaJuridico[x] = sc.nextLine();
+                                        if (x == 0) {
+                                            escolhaJuridico[x] = sc.nextLine();
+                                        }
                                         System.out.println("");
                                     }
-                                    println("valor da conta :");
+                                    println("VALOR DA CONTA :");
                                     int valordacontaget = sc.nextInt();
 
                                     PessoaJuridica clJuridica = new PessoaJuridica(escolhaJuridico[0],
@@ -114,7 +235,7 @@ public class App {
                                 break;
                             ///////////////////////////////////////////////////////
                             case 5:
-                                println("/////////////////LISTA DE CLIENTES/////////////////////");
+                                println("///////////////// LISTA DE CLIENTES /////////////////////");
                                 for (int x = 0; x < lcd.get(idDaLocadora).clp.size(); x++) {
                                     System.out.println(lcd.get(idDaLocadora).clp.toString());
                                 }
@@ -124,7 +245,10 @@ public class App {
                                 break;
                             ///////////////////////////////////////////////////////
                             case 6:
-                                loop = false;
+                                println("///////////////// LISTA DE CARROS /////////////////////");
+                                for (int x = 0; x < lcd.get(idDaLocadora).crr.size(); x++) {
+                                    System.out.println(lcd.get(idDaLocadora).crr.toString());
+                                }
                                 break;
                             ///////////////////////////////////////////////////////
                             case 7:
