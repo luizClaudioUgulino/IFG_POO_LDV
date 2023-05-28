@@ -1,8 +1,8 @@
-public class PessoaFisica extends Clientes{
+public class PessoaFisica extends Clientes {
 
-    public PessoaFisica(String nome, String endereço, String telefone,String cpf,int valorContaDinheiro ) {
-        super(nome, endereço, telefone,valorContaDinheiro);
-        //TODO Auto-generated constructor stub
+    public PessoaFisica(String nome, String endereço, String telefone, String cpf, int valorContaDinheiro) {
+        super(nome, endereço, telefone, valorContaDinheiro);
+        // TODO Auto-generated constructor stub
         this.cpf = cpf;
     }
 
@@ -16,7 +16,4 @@ public class PessoaFisica extends Clientes{
         this.cpf = cpf;
     }
 
-
-
-
-} 
+}
