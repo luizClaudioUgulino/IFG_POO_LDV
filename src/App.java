@@ -285,15 +285,20 @@ public class App {
                                 int ESCOLHA = sc.nextInt();
 
                                 if (ESCOLHA == 1) {
+                                    try {
+                                        if (lcd.get(idDaLocadora).emprestimo.get(idParacotacao).clientes
+                                                .getValorContaDinheiro() > valorTotalAoPagar) {
 
-                                    if (lcd.get(idDaLocadora).emprestimo.get(idParacotacao).clientes
-                                            .getValorContaDinheiro() > valorTotalAoPagar) {
+                                            lcd.get(idDaLocadora).emprestimo.get(idParacotacao)
+                                                    .setStatusEmprestimo(false);
 
-                                        lcd.get(idDaLocadora).emprestimo.get(idParacotacao).setStatusEmprestimo(false);
+                                        } else {
+                                            System.out.println("NÃO TEM DINHEIRO SUFICIENTE");
 
-                                    } else {
+                                        }
+                                    } catch (AbstractMethodError e) {
+
                                         System.out.println("NÃO TEM DINHEIRO SUFICIENTE");
-
                                     }
 
                                 } else {
