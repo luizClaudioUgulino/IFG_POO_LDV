@@ -44,4 +44,5 @@ public class Locadora {
     ArrayList<Luxo> vj = new ArrayList<Luxo>();
     ArrayList<Suv> vj2 = new ArrayList<Suv>();
 
+    ArrayList<Emprestimo> emprestimo = new ArrayList<Emprestimo>();
 }

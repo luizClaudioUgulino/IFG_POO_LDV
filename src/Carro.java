@@ -17,7 +17,7 @@ public class Carro {
                 + ", CarroDisponível=" + CarroDisponível + ", ValorMulta=" + ValorMulta + "]";
     }
 
-    private int numeroVezesEmprestimo;
+    private int numeroVezesEmprestimo = 0;
 
     public Carro(String idDoCarro, String marca, String modelo, String placa, String ano, int valorDeLocacao,
             int cotaRenovacao,
@@ -116,7 +116,7 @@ public class Carro {
 
     public void setNumeroVezesEmprestimo(int numeroVezesEmpresitmo) {
         if (this.numeroVezesEmprestimo < this.cotaRenovacao) {
-            this.numeroVezesEmprestimo = numeroVezesEmpresitmo;
+            this.numeroVezesEmprestimo = numeroVezesEmpresitmo + 1;
         }
     }
 

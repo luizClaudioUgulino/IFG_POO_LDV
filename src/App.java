@@ -66,40 +66,67 @@ public class App {
                                     String nomeVeiculo = sc.next();
 
                                     int idDoCliente = 0;
-                                    for (int x = 0; x < lcd.get(idDaLocadora).clp.size(); x++) {
-                                        if (lcd.get(idDaLocadora).clp.get(x).getNome().equals(nomeCliente)) {
-                                            idDoCliente = x;
-                                        }
-                                    }
-                                    for (int x = 0; x < lcd.get(idDaLocadora).clj.size(); x++) {
-                                        if (lcd.get(idDaLocadora).clj.get(x).getNome().equals(nomeCliente)) {
+                                    int idDoCarro = 0;
+                                    for (int x = 0; x < lcd.get(idDaLocadora).cl.size(); x++) {
+                                        if (lcd.get(idDaLocadora).cl.get(x).getNome().equals(nomeCliente)) {
                                             idDoCliente = x;
                                         }
 
-                                        int idDoCarro = 0;
-
-                                        for (int y = 0; x < lcd.get(idDaLocadora).crr.size(); x++) {
+                                        for (int y = 0; y < lcd.get(idDaLocadora).crr.size(); y++) {
 
                                             if (lcd.get(idDaLocadora).crr.get(y).getIdDoCarro().equals(nomeVeiculo)) {
-                                                idDoCarro = x;
+                                                idDoCarro = y;
                                             }
                                         }
 
                                         System.out.println("ID DO EMPRESTIMO:");
                                         int idDoEmprestimoString = sc.nextInt();
 
-                                        Carro carroid = lcd.get(idDaLocadora).crr.get(idDoCliente);
-                                        Clientes cienteget = lcd.get(idDaLocadora).cl.get(idDoCarro);
+                                        Carro carrogetc = lcd.get(idDaLocadora).crr.get(idDoCarro);
+                                        Clientes cienteget = lcd.get(idDaLocadora).cl.get(idDoCliente);
 
-                                        Emprestimo emp = new Emprestimo(idDoEmprestimoString, cienteget, carroid, true);
+                                        Emprestimo emprestimo = new Emprestimo(idDoEmprestimoString, cienteget,
+                                                carrogetc,
+                                                true);
+
+                                        lcd.get(idDaLocadora).emprestimo.add(emprestimo);
 
                                     }
 
                                 } else if (escolhaEmprestimo == 2) {
 
-                                } else {
-                                }
+                                    println("////////////// LISTA DE EMPRESTIMO ///////////////");
+                                    for (int x = 0; x < lcd.get(idDaLocadora).emprestimo.size(); x++) {
 
+                                        System.out.println(lcd.get(idDaLocadora).emprestimo.get(x).toString());
+
+                                    }
+
+                                } else if (escolhaEmprestimo == 3) {
+
+                                    println("////////////////////////// RENOVAÇÃO ///////////////////////////////");
+                                    System.out.println("DIGITE ID DO EMPRESTIMO:");
+                                    int idDoEmprestimoget = sc.nextInt();
+
+                                    int idParacotacao = 0;
+                                    for (int x = 0; x < lcd.get(idDaLocadora).emprestimo.size(); x++) {
+
+                                        if (lcd.get(idDaLocadora).emprestimo.get(x)
+                                                .getIdDoEmprestimo() == idDoEmprestimoget) {
+                                            idParacotacao = x;
+                                        }
+                                    }
+
+                                    lcd.get(idDaLocadora).emprestimo.get(idParacotacao).carro
+                                            .setNumeroVezesEmprestimo(1);
+                                    System.out.println("REALIZADO RENOVAÇÃO COM SUCESSO.");
+
+                                } else {
+
+                                    System.out.println("opção invalida");
+                                    break;
+
+                                }
                                 break;
                             ///////////////////////////////////////////////////////
                             case 2:
@@ -145,7 +172,7 @@ public class App {
                                     int valorcarro = sc.nextInt();
 
                                     Carro carro = new Carro(escolhaLuxo[0], escolhaLuxo[1], escolhaLuxo[2],
-                                            escolhaLuxo[3], escolhaLuxo[4], valorcarro, 3, true, 10);
+                                            escolhaLuxo[3], escolhaLuxo[4], valorcarro, 2, true, 5);
 
                                     lcd.get(idDaLocadora).crr.add(carro);
 
@@ -165,7 +192,7 @@ public class App {
                                     int valorcarro = sc.nextInt();
 
                                     Carro carro = new Carro(escolhaLuxo[0], escolhaLuxo[1], escolhaLuxo[2],
-                                            escolhaLuxo[3], escolhaLuxo[4], valorcarro, 3, true, 10);
+                                            escolhaLuxo[3], escolhaLuxo[4], valorcarro, 1, true, 3);
 
                                     lcd.get(idDaLocadora).crr.add(carro);
                                 } else {
@@ -182,7 +209,7 @@ public class App {
 
                                 if (escolhaCliente == 1) { /// Fisico
                                     println("////////////// CADASTRAR PESSOA FISICA ///////////////");
-                                    String[] escolhaFisico = { "nome", "endereco", "telefone", "cpf" };
+                                    String[] escolhaFisico = { "nome", "endereco", "telefone" };
 
                                     for (int x = 0; x < escolhaFisico.length; x++) {
                                         System.out.print("Digide " + escolhaFisico[x] + ":");
@@ -190,14 +217,15 @@ public class App {
                                         if (x == 0) {
                                             escolhaFisico[x] = sc.nextLine();
                                         }
-                                        println("VALOR DA CONTA :");
                                         System.out.println("");
                                     }
+                                    println("VALOR DA CONTA :");
+
                                     int valordacontaget = sc.nextInt();
 
-                                    PessoaFisica clFisco = new PessoaFisica(escolhaFisico[0], escolhaFisico[1],
-                                            escolhaFisico[2], escolhaFisico[3], valordacontaget);
-                                    lcd.get(idDaLocadora).clp.add(clFisco);
+                                    Clientes clFisco = new Clientes(escolhaFisico[0], escolhaFisico[1],
+                                            escolhaFisico[2], valordacontaget);
+                                    lcd.get(idDaLocadora).cl.add(clFisco);
 
                                 } else if (escolhaCliente == 2) { //// JURIDICO
 
@@ -232,6 +260,46 @@ public class App {
                             ///////////////////////////////////////////////////////
                             case 4:
                                 println("devolução");
+
+                                System.out.println("DIGITE ID DO EMPRESTIMO:");
+                                int idDoEmprestimoget = sc.nextInt();
+
+                                int idParacotacao = 0;
+                                for (int x = 0; x < lcd.get(idDaLocadora).emprestimo.size(); x++) {
+
+                                    if (lcd.get(idDaLocadora).emprestimo.get(x)
+                                            .getIdDoEmprestimo() == idDoEmprestimoget) {
+                                        idParacotacao = x;
+                                    }
+                                }
+
+                                int valorTotalAoPagar = lcd.get(idDaLocadora).emprestimo.get(idParacotacao).carro
+                                        .getValorDeLocacao();
+                                valorTotalAoPagar = valorTotalAoPagar
+                                        + (lcd.get(idDaLocadora).emprestimo.get(idParacotacao).carro.getValorMulta()
+                                                * lcd.get(idDaLocadora).emprestimo.get(idParacotacao).carro
+                                                        .getNumeroVezesEmprestimo());
+
+                                System.out.println(
+                                        "VALOR TOTAL PARA PAGAR É :" + valorTotalAoPagar + " / SIM - (1) / NÃO - (2)");
+                                int ESCOLHA = sc.nextInt();
+
+                                if (ESCOLHA == 1) {
+
+                                    if (lcd.get(idDaLocadora).emprestimo.get(idParacotacao).clientes
+                                            .getValorContaDinheiro() > valorTotalAoPagar) {
+
+                                        lcd.get(idDaLocadora).emprestimo.get(idParacotacao).setStatusEmprestimo(false);
+
+                                    } else {
+                                        System.out.println("NÃO TEM DINHEIRO SUFICIENTE");
+
+                                    }
+
+                                } else {
+
+                                }
+
                                 break;
                             ///////////////////////////////////////////////////////
                             case 5:
@@ -239,6 +307,11 @@ public class App {
                                 for (int x = 0; x < lcd.get(idDaLocadora).clp.size(); x++) {
                                     System.out.println(lcd.get(idDaLocadora).clp.toString());
                                 }
+
+                                for (int x = 0; x < lcd.get(idDaLocadora).cl.size(); x++) {
+                                    System.out.println(lcd.get(idDaLocadora).cl.toString());
+                                }
+
                                 for (int x = 0; x < lcd.get(idDaLocadora).clj.size(); x++) {
                                     System.out.println(lcd.get(idDaLocadora).clj.toString());
                                 }
